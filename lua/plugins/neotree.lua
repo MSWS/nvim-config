@@ -1,3 +1,9 @@
+local function open_all_subnodes(state)
+  local node = state.tree:get_node()
+  local filesystem_commands = require("neo-tree.sources.filesystem.commands")
+  filesystem_commands.expand_all_nodes(state, node)
+end
+
 return {
   "nvim-neo-tree/neo-tree.nvim",
   branch = "v3.x",
@@ -9,5 +15,12 @@ return {
   },
   config = function()
     vim.keymap.set('n', '<S-e>', ':Neotree toggle right<CR>', {})
+    require("neo-tree").setup({
+      window = {
+        mappings = {
+          ["O"] = open_all_subnodes,
+        },
+      },
+    })
   end
 }
