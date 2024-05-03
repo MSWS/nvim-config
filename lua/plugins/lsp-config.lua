@@ -3,6 +3,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<C-Space>', vim.lsp.buf.hover, {})
     vim.keymap.set({'n', 'v'}, '<leader>ca', vim.lsp.buf.code_action, {})
     vim.keymap.set({'n', 'v'}, '<F2>', vim.lsp.buf.rename, {})
+    vim.keymap.set('n', '<C-S-f>', vim.lsp.buf.format, {})
   end,
 })
 return {
