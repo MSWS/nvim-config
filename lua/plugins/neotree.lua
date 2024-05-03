@@ -17,6 +17,7 @@ return {
     vim.keymap.set('n', '<S-e>', ':Neotree toggle right<CR>', {})
     require("neo-tree").setup({
       window = {
+        position = "right",
         mappings = {
           ["O"] = open_all_subnodes,
         },

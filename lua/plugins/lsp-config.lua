@@ -1,3 +1,10 @@
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(args)
+    vim.keymap.set('n', '<C-Space>', vim.lsp.buf.hover, {})
+    vim.keymap.set({'n', 'v'}, '<leader>ca', vim.lsp.buf.code_action, {})
+    vim.keymap.set({'n', 'v'}, '<F2>', vim.lsp.buf.rename, {})
+  end,
+})
 return {
   {
     "williamboman/mason.nvim",
@@ -9,7 +16,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls" }
+        ensure_installed = { "lua_ls", "tsserver" }
       })
     end
   },
@@ -18,9 +25,7 @@ return {
     config = function()
       local lspconfig = require("lspconfig")
       lspconfig.lua_ls.setup({})
-
-      vim.keymap.set('n', '<C-Space>', vim.lsp.buf.hover, {})
-      vim.keymap.set({'n', 'v'}, '<leader>ca', vim.lsp.buf.code_action, {})
+      lspconfig.tsserver.setup({})
     end
   }
 }
