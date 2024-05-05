@@ -17,7 +17,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "tsserver", "clangd" },
+				ensure_installed = { "lua_ls", "tsserver", "clangd", "texlab" },
 			})
 		end,
 	},
@@ -29,6 +29,7 @@ return {
 			lspconfig.lua_ls.setup({ capabilities = capabilities })
 			lspconfig.tsserver.setup({ capabilities = capabilities })
 			lspconfig.clangd.setup({ capabilities = capabilities })
+			lspconfig.texlab.setup({ capabilities = capabilities })
 		end,
 	},
 }
