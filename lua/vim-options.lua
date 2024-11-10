@@ -5,3 +5,5 @@ vim.cmd("set expandtab")
 vim.cmd("set nu")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
